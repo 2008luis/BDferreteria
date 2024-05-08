@@ -297,13 +297,54 @@ FROM
 GROUP BY 
     v.nombreEmpleado, p.nombreProducto, p.precioVenta;//
     
-create procedure clienteMasCompra(
+CREATE PROCEDURE clienteMasCompra(
+    p_fechaInicio DATE,
+    p_fechaFin DATE
 )
-begin 
-SELECT nombreCliente, COUNT(*) AS TotalCompras
-FROM venta
-GROUP BY nombreCliente
-ORDER BY TotalCompras DESC
-LIMIT 1;
-end;//
+BEGIN
+    SELECT nombreCliente as Cliente, COUNT(*) AS TotalCompras
+    FROM venta
+    WHERE fechaVenta BETWEEN p_fechaInicio AND p_fechaFin
+    GROUP BY nombreCliente
+    ORDER BY TotalCompras DESC
+    LIMIT 1;
+END;//
 
+CREATE PROCEDURE vendedorMasVentas(
+    p_fechaInicio DATE,
+    p_fechaFin DATE
+)
+BEGIN
+    SELECT nombreEmpleado AS Vendedor, COUNT(*) AS TotalVentas
+    FROM venta
+    WHERE fechaVenta BETWEEN p_fechaInicio AND p_fechaFin
+    GROUP BY nombreEmpleado
+    ORDER BY TotalVentas DESC
+    LIMIT 1;
+END;//
+CREATE FUNCTION calcular_total_recaudacion(
+    p_fechaInicio DATE,
+    p_fechaFin DATE
+)
+RETURNS DOUBLE
+DETERMINISTIC
+READS SQL DATA
+BEGIN
+    DECLARE total_recaudacion DOUBLE;
+
+    SELECT SUM(totalpagar) INTO total_recaudacion
+    FROM venta
+    WHERE fechaVenta BETWEEN p_fechaInicio AND p_fechaFin;
+
+    RETURN total_recaudacion;
+END;//
+
+CREATE PROCEDURE validarProductoExistente(
+    pnombreProducto VARCHAR(40),
+	pcodigo INT
+)
+BEGIN
+    SELECT COUNT(*) AS total
+    FROM producto 
+    WHERE nombreProducto = pnombreProducto OR codigo = pcodigo;
+END;
