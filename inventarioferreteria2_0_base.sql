@@ -33,7 +33,6 @@ Cedula varchar(10));
 insert into cliente values(1,'DIANA','MANCHEGO', '3205295890', '53061133');
 insert into cliente values(2,'RICARDO','JOSE', '3014659906', '1031812964');
 insert into cliente values(3,'CAMILO','ANDRES', '3002589630', '123456789');
-select* from venta;
 
 
 create table producto (id_producto  int AUTO_INCREMENT primary key ,
@@ -53,66 +52,6 @@ cant int,
 precio_Unitario double);
 
 
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('CAMILO', 'Martillo', 1, 'RICARDO', '1031812964', '2024-04-29', 100000, 2, 2, 2);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('DANILO', 'Rodillo de felpa', 3, 'CAMILO', '123456789', '2024-04-30', 120000, 3, 3, 3);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('ANDRES', 'taladro', 1, 'DIANA', '53061133', '2024-05-01', 80000, 4, 1, 1);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('LUIS', 'Martillo', 2, 'RICARDO', '1031812964', '2024-05-02', 200000, 1, 2, 2);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('DANILO', 'Rodillo de felpa', 2, 'CAMILO', '123456789', '2024-05-03', 80000, 3, 3, 3);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('ANDRES', 'taladro', 3, 'DIANA', '53061133', '2024-05-04', 240000, 4, 1, 1);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('LUIS', 'Martillo', 1, 'RICARDO', '1031812964', '2024-05-05', 100000, 1, 2, 2);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('DANILO', 'Rodillo de felpa', 4, 'CAMILO', '123456789', '2024-05-06', 160000, 3, 3, 3);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('ANDRES', 'taladro', 2, 'DIANA', '53061133', '2024-05-07', 160000, 4, 1, 1);
-
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('LUIS', 'Martillo', 2, 'RICARDO', '1031812964', '2024-05-08', 200000, 1, 2, 2);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('DANILO', 'Rodillo de felpa', 3, 'CAMILO', '123456789', '2024-05-09', 120000, 3, 3, 3);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('ANDRES', 'taladro', 1, 'DIANA', '53061133', '2024-05-10', 80000, 4, 1, 1);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('LUIS', 'Martillo', 1, 'RICARDO', '1031812964', '2024-05-11', 100000, 1, 2, 2);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('DANILO', 'Rodillo de felpa', 2, 'CAMILO', '123456789', '2024-05-12', 80000, 3, 3, 3);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('ANDRES', 'taladro', 3, 'DIANA', '53061133', '2024-05-13', 240000, 4, 1, 1);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('LUIS', 'Martillo', 2, 'RICARDO', '1031812964', '2024-05-14', 200000, 1, 2, 2);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('DANILO', 'Rodillo de felpa', 3, 'CAMILO', '123456789', '2024-05-15', 120000, 3, 3, 3);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('ANDRES', 'taladro', 1, 'DIANA', '53061133', '2024-05-16', 80000, 4, 1, 1);
-INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('LUIS', 'Martillo', 1, 'RICARDO', '1031812964', '2024-05-17', 100000, 1, 2, 2);
-
-INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('WILLIAM', 'DIANA', '53061133', 'taladro', 2, '2024-06-01', 160000, 5, 1, 1);
-INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('ROBERT', 'RICARDO', '1031812964', 'Martillo de bola', 1, '2024-06-02', 60000, 6, 10, 2);
-INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('WILLIAM', 'CAMILO', '123456789', 'Pinzas de punta', 3, '2024-06-03', 72000, 5, 5, 3);
-INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('ROBERT', 'DIANA', '53061133', 'taladro', 1, '2024-06-04', 80000, 6, 1, 1);
-INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('WILLIAM', 'RICARDO', '1031812964', 'Martillo de bola', 2, '2024-06-05', 120000, 5, 10, 2);
-INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('ROBERT', 'CAMILO', '123456789', 'Sierra de mano', 2, '2024-06-06', 72000, 6, 9, 3);
-INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('WILLIAM', 'DIANA', '53061133', 'Rodillo de felpa', 3, '2024-06-07', 120000, 5, 3, 1);
-INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('ROBERT', 'RICARDO', '1031812964', 'Destornillador eléctrico', 1, '2024-06-08', 50000, 6, 11, 2);
-INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('WILLIAM', 'CAMILO', '123456789', 'Sierra circular', 4, '2024-06-09', 480000, 5, 8, 3);
-INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
-VALUES ('ROBERT', 'DIANA', '53061133', 'Llave ajustable', 2, '2024-06-10', 60000, 6, 7, 1);
 
 create table venta(id_venta int AUTO_INCREMENT primary key ,
 nombreEmpleado varchar(30),
@@ -128,7 +67,6 @@ fkcliente int,
 foreign key (fkcliente) references cliente(id_Cliente),
 foreign key (fkempleado) references empleado(id_empleado),
 foreign key (fkproducto) references producto (id_producto));
-
 Delimiter //
 
 create procedure validarLogin(pusuario varchar(30), pclave varchar(10)
@@ -427,4 +365,64 @@ BEGIN
     SELECT COUNT(*) AS total
     FROM producto 
     WHERE nombreProducto = pnombreProducto OR codigo = pcodigo;
-END;
+END;//
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('CAMILO', 'Martillo', 1, 'RICARDO', '1031812964', '2024-04-29', 100000, 2, 2, 2);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('DANILO', 'Rodillo de felpa', 3, 'CAMILO', '123456789', '2024-04-30', 120000, 3, 3, 3);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('ANDRES', 'taladro', 1, 'DIANA', '53061133', '2024-05-01', 80000, 4, 1, 1);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('LUIS', 'Martillo', 2, 'RICARDO', '1031812964', '2024-05-02', 200000, 1, 2, 2);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('DANILO', 'Rodillo de felpa', 2, 'CAMILO', '123456789', '2024-05-03', 80000, 3, 3, 3);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('ANDRES', 'taladro', 3, 'DIANA', '53061133', '2024-05-04', 240000, 4, 1, 1);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('LUIS', 'Martillo', 1, 'RICARDO', '1031812964', '2024-05-05', 100000, 1, 2, 2);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('DANILO', 'Rodillo de felpa', 4, 'CAMILO', '123456789', '2024-05-06', 160000, 3, 3, 3);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('ANDRES', 'taladro', 2, 'DIANA', '53061133', '2024-05-07', 160000, 4, 1, 1);
+
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('LUIS', 'Martillo', 2, 'RICARDO', '1031812964', '2024-05-08', 200000, 1, 2, 2);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('DANILO', 'Rodillo de felpa', 3, 'CAMILO', '123456789', '2024-05-09', 120000, 3, 3, 3);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('ANDRES', 'taladro', 1, 'DIANA', '53061133', '2024-05-10', 80000, 4, 1, 1);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('LUIS', 'Martillo', 1, 'RICARDO', '1031812964', '2024-05-11', 100000, 1, 2, 2);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('DANILO', 'Rodillo de felpa', 2, 'CAMILO', '123456789', '2024-05-12', 80000, 3, 3, 3);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('ANDRES', 'taladro', 3, 'DIANA', '53061133', '2024-05-13', 240000, 4, 1, 1);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('LUIS', 'Martillo', 2, 'RICARDO', '1031812964', '2024-05-14', 200000, 1, 2, 2);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('DANILO', 'Rodillo de felpa', 3, 'CAMILO', '123456789', '2024-05-15', 120000, 3, 3, 3);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('ANDRES', 'taladro', 1, 'DIANA', '53061133', '2024-05-16', 80000, 4, 1, 1);
+INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('LUIS', 'Martillo', 1, 'RICARDO', '1031812964', '2024-05-17', 100000, 1, 2, 2);
+
+INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('WILLIAM', 'DIANA', '53061133', 'taladro', 2, '2024-06-01', 160000, 5, 1, 1);
+INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('ROBERT', 'RICARDO', '1031812964', 'Martillo de bola', 1, '2024-06-02', 60000, 6, 10, 2);
+INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('WILLIAM', 'CAMILO', '123456789', 'Pinzas de punta', 3, '2024-06-03', 72000, 5, 5, 3);
+INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('ROBERT', 'DIANA', '53061133', 'taladro', 1, '2024-06-04', 80000, 6, 1, 1);
+INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('WILLIAM', 'RICARDO', '1031812964', 'Martillo de bola', 2, '2024-06-05', 120000, 5, 10, 2);
+INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('ROBERT', 'CAMILO', '123456789', 'Sierra de mano', 2, '2024-06-06', 72000, 6, 9, 3);
+INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('WILLIAM', 'DIANA', '53061133', 'Rodillo de felpa', 3, '2024-06-07', 120000, 5, 3, 1);
+INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('ROBERT', 'RICARDO', '1031812964', 'Destornillador eléctrico', 1, '2024-06-08', 50000, 6, 11, 2);
+INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('WILLIAM', 'CAMILO', '123456789', 'Sierra circular', 4, '2024-06-09', 480000, 5, 8, 3);
+INSERT INTO venta (nombreEmpleado, nombreCliente, nitCliente, nombreProducto, cantidadVendida, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
+VALUES ('ROBERT', 'DIANA', '53061133', 'Llave ajustable', 2, '2024-06-10', 60000, 6, 7, 1);//
