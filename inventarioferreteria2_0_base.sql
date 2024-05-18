@@ -366,6 +366,15 @@ BEGIN
     FROM producto 
     WHERE nombreProducto = pnombreProducto OR codigo = pcodigo;
 END;//
+
+CREATE PROCEDURE obtenerCantidadPrecio(
+     pnombreProducto VARCHAR(100)
+)
+BEGIN
+select precioVenta,cantidad from producto where nombreProducto = pnombreProducto;
+END;//
+
+
 INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
 VALUES ('CAMILO', 'Martillo', 1, 'RICARDO', '1031812964', '2024-04-29', 100000, 2, 2, 2);
 INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
