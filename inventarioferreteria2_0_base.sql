@@ -7,16 +7,17 @@ insert into rol values(2,"Usuarios");
 
 create table empleado(id_empleado int AUTO_INCREMENT primary key,
 Nombre varchar(30),
+Apellido varchar(30),
 usuario varchar(10),
 clave varchar(12),
  fk_rol int,
 foreign key(fk_rol) references rol(id_rol));
-insert into empleado values(1,"LUIS","LUIS","5678",1);
-insert into empleado values(2,"CAMILO","CAMILO","1234",2);
-insert into empleado values(3,"DANILO","DANILO","danilo123",2);
-insert into empleado values(4,"ANDRES","CAMILO","andres123",2);
-insert into empleado values(5,"WILLIAM","WILLIAM","william589",2);
-insert into empleado values(6,"ROBERT","ROBERT","robert456",2);
+insert into empleado values(1,"LUIS","CORREA", "LUIS","5678",1);
+insert into empleado values(2,"CAMILO","SALAGADO","CAMILO","1234",2);
+insert into empleado values(3,"DANILO","LARGE","DANILO","danilo123",2);
+insert into empleado values(4,"ANDRES", "SALCEDO","CAMILO","andres123",2);
+insert into empleado values(5,"WILLIAM","URREGO","WILLIAM","william589",2);
+insert into empleado values(6,"ROBERT","SANCHEZ","ROBERT","robert456",2);
 
 	
 create table respaldoVenta(id_respaldo int  AUTO_INCREMENT primary key,
@@ -212,13 +213,14 @@ end;//
 
 create procedure registrarEmpleados(
 pnombre varchar(30),
+pApellido varchar(30),
 pusuario varchar(10),
 pclave varchar(12),
 pfk_rol int
 )
 begin
-insert into empleado (nombre,usuario,clave,fk_rol)
-values (pnombre,pusuario,pclave,pfk_rol);
+insert into empleado (nombre,Apellido,usuario,clave,fk_rol)
+values (pnombre,pApellido,pusuario,pclave,pfk_rol);
 end;//
 
 CREATE PROCEDURE generalReporteRecaudacion(
@@ -373,6 +375,12 @@ CREATE PROCEDURE obtenerCantidadPrecio(
 BEGIN
 select precioVenta,cantidad from producto where nombreProducto = pnombreProducto;
 END;//
+
+create procedure mostrarEmpleados()
+begin 
+select nombre, apellido from empleado;
+end;//
+
 
 
 INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
