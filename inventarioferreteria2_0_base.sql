@@ -10,14 +10,15 @@ Nombre varchar(30),
 Apellido varchar(30),
 usuario varchar(10),
 clave varchar(12),
+estado ENUM('activo', 'inactivo') DEFAULT 'activo',
  fk_rol int,
 foreign key(fk_rol) references rol(id_rol));
-insert into empleado values(1,"LUIS","CORREA", "LUIS","5678",1);
-insert into empleado values(2,"CAMILO","SALAGADO","CAMILO","1234",2);
-insert into empleado values(3,"DANILO","LARGE","DANILO","danilo123",2);
-insert into empleado values(4,"ANDRES", "SALCEDO","CAMILO","andres123",2);
-insert into empleado values(5,"WILLIAM","URREGO","WILLIAM","william589",2);
-insert into empleado values(6,"ROBERT","SANCHEZ","ROBERT","robert456",2);
+insert into empleado values(1,"LUIS","CORREA", "LUIS","5678",'activo',1);
+insert into empleado values(2,"CAMILO","SALAGADO","CAMILO","1234",'activo',2);
+insert into empleado values(3,"DANILO","LARGE","DANILO","danilo123",'activo',2);
+insert into empleado values(4,"ANDRES", "SALCEDO","CAMILO","andres123",'activo',2);
+insert into empleado values(5,"WILLIAM","URREGO","WILLIAM","william589",'activo',2);
+insert into empleado values(6,"ROBERT","SANCHEZ","ROBERT","robert456",'activo',2);
 
 	
 create table respaldoVenta(id_respaldo int  AUTO_INCREMENT primary key,
@@ -36,13 +37,15 @@ insert into cliente values(2,'RICARDO','JOSE', '3014659906', '1031812964');
 insert into cliente values(3,'CAMILO','ANDRES', '3002589630', '123456789');
 
 
-create table producto (id_producto  int AUTO_INCREMENT primary key ,
-nombreProducto varchar(30),
-codigo int,
-categoria varchar(30),
-precio double,
-precioVenta double,
-cantidad int
+CREATE TABLE producto (
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    nombreProducto VARCHAR(30),
+    codigo INT,
+    categoria VARCHAR(30),
+    precio DOUBLE,
+    precioVenta DOUBLE,
+    cantidad INT,
+    estado ENUM('activo', 'inactivo') DEFAULT 'activo'
 );
 
 create table respaldoProducto(
@@ -85,12 +88,12 @@ end;//
 create procedure agregarProducto(pnombreProducto  varchar(30) , pcodigo int, pcategoria  varchar(30),
  pprecio  double, pprecioVenta double, pcantidad int)
 begin 
-insert into producto (nombreProducto, codigo, categoria, precio, precioVenta, cantidad)
-values(pnombreProducto, pcodigo, pcategoria, pprecio, pprecioVenta, pcantidad);
+insert into producto (nombreProducto, codigo, categoria, precio, precioVenta, cantidad, estado)
+values(pnombreProducto, pcodigo, pcategoria, pprecio, pprecioVenta, pcantidad,'activo');
 end;//
-call agregarProducto('taladro',8520,'herramienta','40000','80000',100);//
-call agregarProducto('Martillo',789,'herramienta','50000','100000',100);//
-call agregarProducto('Rodillo de felpa',52,'herramienta','20000','40000',300);//
+CALL agregarProducto('taladro', 8520, 'herramienta', 40000, 80000, 100);
+CALL agregarProducto('Martillo', 789, 'herramienta', 50000, 100000, 100);
+CALL agregarProducto('Rodillo de felpa', 52, 'herramienta', 20000, 40000, 300);
 CALL agregarProducto('Sierra circular', 790, 'herramienta', 60000, 120000, 30);
 CALL agregarProducto('Destornillador eléctrico', 53, 'herramienta', 25000, 50000, 80);
 CALL agregarProducto('Llave ajustable', 129, 'herramienta', 15000, 30000, 100);
@@ -99,7 +102,7 @@ CALL agregarProducto('Pinzas de punta', 452, 'herramienta', 12000, 24000, 70);
 CALL agregarProducto('Llave de tubo', 217, 'herramienta', 20000, 40000, 40);
 CALL agregarProducto('Destornillador de estrella', 993, 'herramienta', 10000, 20000, 90);
 CALL agregarProducto('Martillo de bola', 756, 'herramienta', 30000, 60000, 60);
-CALL agregarProducto('Sierra de mano', 402, 'herramienta', 18000, 36000, 120);//
+CALL agregarProducto('Sierra de mano', 402, 'herramienta', 18000, 36000, 120);
 
 CREATE PROCEDURE agregarVenta(
     pnombreCliente VARCHAR(30),
@@ -137,13 +140,13 @@ select * from venta;//
 
 create procedure comboProducto()
 begin 
-	select id_producto, nombreProducto from producto;
+select id_producto, nombreProducto from producto where estado = 'activo';
     end;//
     
    
 create procedure mostrardatosProducto()
 begin 
-	    select nombreProducto, codigo, categoria, cantidad, precioVenta from producto;
+	    select nombreProducto, codigo, categoria, cantidad, precioVenta from producto where estado = 'activo';
     end;//
     
 CREATE PROCEDURE generarReporteVentas(
@@ -219,8 +222,8 @@ pclave varchar(12),
 pfk_rol int
 )
 begin
-insert into empleado (nombre,Apellido,usuario,clave,fk_rol)
-values (pnombre,pApellido,pusuario,pclave,pfk_rol);
+insert into empleado (nombre,Apellido,usuario,clave,fk_rol,estado)
+values (pnombre,pApellido,pusuario,pclave,pfk_rol,'activo');
 end;//
 
 CREATE PROCEDURE generalReporteRecaudacion(
@@ -380,7 +383,34 @@ create procedure mostrarEmpleados()
 begin 
 select nombre, apellido from empleado;
 end;//
+CREATE PROCEDURE desactivarProducto(
+    pid_producto INT
+)
+BEGIN
+    UPDATE producto
+    SET estado = 'inactivo'
+    WHERE id_producto = pid_producto;
+END;//
+CALL desactivarProducto(1);//
 
+CREATE PROCEDURE activarProducto(
+    pid_producto INT
+)
+BEGIN
+    UPDATE producto
+    SET estado = 'activo'
+    WHERE id_producto = pid_producto;
+END;//
+CALL activarProducto(1);//
+create procedure obteneridProducto(pnombreProducto varchar(30))
+begin
+select id_producto from producto where nombreProducto = pnombreProducto;
+end;//
+
+create procedure buscar(pcodigo int)
+begin 
+select nombreProducto, precio, precioVenta, cantidad from producto where codigo = pcodigo;
+end;//
 
 
 INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
