@@ -388,7 +388,7 @@ BEGIN
     SET estado = 'inactivo'
     WHERE id_producto = pid_producto;
 END;//
-CALL desactivarProducto(1);//
+
 
 CREATE PROCEDURE activarProducto(
     pid_producto INT
@@ -398,7 +398,7 @@ BEGIN
     SET estado = 'activo'
     WHERE id_producto = pid_producto;
 END;//
-CALL activarProducto(1);//
+
 create procedure obteneridProducto(pnombreProducto varchar(30))
 begin
 select id_producto from producto where nombreProducto = pnombreProducto;
@@ -427,6 +427,15 @@ begin
  select nombreProducto, codigo, categoria, cantidad, precioVenta from producto where estado = 'inactivo';
     end;//
     
+CREATE PROCEDURE actualizarEstadoProducto(
+     productoNombre VARCHAR(30),
+     nuevoEstado VARCHAR(30)
+)
+BEGIN
+    UPDATE producto
+    SET estado = nuevoEstado
+    WHERE nombreProducto = productoNombre;
+END //
 
 INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
 VALUES ('CAMILO', 'Martillo', 1, 'RICARDO', '1031812964', '2024-04-29', 100000, 2, 2, 2);
