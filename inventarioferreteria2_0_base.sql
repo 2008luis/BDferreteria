@@ -1,3 +1,4 @@
+
 create database Ferreteria;
 use Ferreteria;
 create table rol (id_rol int primary key,
@@ -136,7 +137,6 @@ BEGIN
 
     UPDATE producto SET cantidad = cantidad - pcantidad WHERE nombreProducto = pnombreProducto;
 END;//
-select * from venta;//
 
 create procedure comboProducto()
 begin 
@@ -179,28 +179,25 @@ LIMIT 1;
 end;//
 
 CREATE PROCEDURE ventasEmpleado(
-    pnombreEmpleado VARCHAR(30), 
+     pnombreEmpleado VARCHAR(30), 
     pfechaInicio DATE,
     pfechaFin DATE
 )
 BEGIN
     SELECT 
         v.nombreEmpleado AS Vendedor,
-        COUNT(*) AS Ventas,
+        v.fechaVenta AS FechaVenta,
         p.nombreProducto AS Producto,
         p.precioVenta AS Precio,
-        SUM(v.cantidadVendida) AS TotalCantidadVendida,
-        SUM(v.totalpagar) AS TotalRecaudado
+        v.cantidadVendida AS CantidadVendida,
+        v.totalpagar AS TotalRecaudado
     FROM 
         venta v 
         INNER JOIN producto p ON v.fkproducto = p.id_producto
     WHERE 
         v.fechaVenta BETWEEN pfechaInicio AND pfechaFin
-        AND v.nombreEmpleado = pnombreEmpleado
-    GROUP BY 
-        v.nombreEmpleado, p.nombreProducto, p.precioVenta;
-END ;// 
-CALL ventasEmpleado('luis', '2024-04-01', '2024-04-30');//
+        AND v.nombreEmpleado = pnombreEmpleado;
+END;//
 
 
 create procedure registrarCLientes(
@@ -412,6 +409,24 @@ begin
 select nombreProducto, precio, precioVenta, cantidad from producto where codigo = pcodigo;
 end;//
 
+CREATE PROCEDURE actualizarProducto(
+     pidProducto INT,
+    pnuevaCantidad INT,
+     pnuevoPrecio DOUBLE,
+     pprecioVenta DOUBLE
+)
+BEGIN
+    UPDATE producto 
+    SET cantidad = pnuevaCantidad, 
+        precio = pnuevoPrecio, 
+        precioVenta = pprecioVenta 
+    WHERE id_producto = pidProducto;
+END //
+create procedure mostrarProductosInactivos()
+begin 
+ select nombreProducto, codigo, categoria, cantidad, precioVenta from producto where estado = 'inactivo';
+    end;//
+    
 
 INSERT INTO venta (nombreEmpleado, nombreProducto, cantidadVendida, nombreCliente, nitCliente, fechaVenta, totalpagar, fkempleado, fkproducto, fkcliente)
 VALUES ('CAMILO', 'Martillo', 1, 'RICARDO', '1031812964', '2024-04-29', 100000, 2, 2, 2);
